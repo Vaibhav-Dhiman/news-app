@@ -4,8 +4,8 @@ import { StatusCodes } from "http-status-codes";
 export default {
   async getAllNews(req, res) {
     try {
-      const { author, category } = req.query;
-      const news = await newsService.getAllNews(author, category);
+      const reqData = req.query;
+      const news = await newsService.getAllNews(reqData);
       return res.json(news);
     } catch (err) {
       return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err);
