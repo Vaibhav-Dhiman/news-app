@@ -20,8 +20,11 @@
     "express-paginate": "^1.0.2",
     "http-status-codes": "^2.2.0",
     "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.5",
     "mongoose-paginate": "^5.0.3",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0"
   }
 }

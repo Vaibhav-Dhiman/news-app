@@ -9,8 +9,13 @@ export default {
   },
 
   async getUser(id) {
-    let data = await User.findOne({ _id: id });
-    return data;
+    let user = await User.findOne({ _id: id });
+    return user;
+  },
+
+  async getUserByEmail(email) {
+    let user = await User.findOne({ email: email });
+    return user;
   },
 
   async createUser(newUser) {
@@ -40,6 +45,18 @@ export default {
       gender: Joi.string().required(),
       materialStatus: Joi.string().required(),
       dob: Joi.string().required(),
+    });
+    const { error, value } = schema.validate(body);
+    if (error && error.details) {
+      return { error };
+    }
+    return { value };
+  },
+
+  validateLoginSchema(body) {
+    const schema = Joi.object().keys({
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
     });
     const { error, value } = schema.validate(body);
     if (error && error.details) {

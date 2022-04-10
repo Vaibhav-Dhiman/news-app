@@ -7,7 +7,7 @@ export default {
       const user = await userService.getAllUsers();
       if (user.length == 0)
         return res.status(StatusCodes.NOT_FOUND).json("Create A User");
-      return res.json(user);
+      else return res.json(user);
     } catch (err) {
       return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err);
     }
